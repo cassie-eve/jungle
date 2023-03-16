@@ -1,9 +1,14 @@
-<h1>Login</h1>
+<br>
+<br>
+<br>
 
-<%= form_tag '/login' do %>
-
-  Email: <%= text_field_tag :email %>
-  Password: <%= password_field_tag :password %>
-  <%= submit_tag "Submit" %>
-
-<% end %>
+<div class='text-center w-50 container'>
+  <div class="form-signin">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <%= bootstrap_form_tag url: '/login' do |f| %>
+      <%= f.email_field :email, placeholder: 'Email', hide_label: true %>
+      <%= f.password_field :password, placeholder: 'Password', hide_label: true %>
+      <%= f.submit "Log In" %>
+    <% end %>
+  </div>
+</div>

@@ -54,7 +54,13 @@ RSpec.describe User, type: :model do
       @user = User.authenticate_with_credentials('cass@gmail.com', '123Password')
       expect(@user).not_to be_nil
     end
+    it 'should be nil with invalid credentials' do
+      @user = User.new(first_name: "Cassie", last_name: "Keddis", email: "cass@gmail.com", password: '123Password', password_confirmation: '123Password')
+      @user.save
 
+      @user = User.authenticate_with_credentials('cass@gmail.com', '12Password')
+      expect(@user).to be_nil
+    end
   end
 end
 

@@ -22,10 +22,19 @@ CypressRails.hooks.before_server_start do
     quantity: 18,
     price: 24.99
   })
+
+  User.create!({
+    first_name: "Cassie", 
+    last_name: "Keddis", 
+    email: "bananas@gmail.com", 
+    password: "123Password", 
+    password_confirmation: "123Password"
+  })
+
 end
 
 CypressRails.hooks.after_transaction_start do
-  # Called after the transaction is started (at launch and after each reset)
+
 end
 
 CypressRails.hooks.after_state_reset do
